@@ -15,9 +15,6 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cwxr/project_4/issues"
-  },
   "homepage": "https://github.com/cwxr/project_4#readme",
   "dependencies": {
     "async": "^2.4.1",
