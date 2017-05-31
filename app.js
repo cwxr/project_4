@@ -14,7 +14,7 @@ var app = express()
 
 // setup DB
 mongoose.Promise = global.Promise
-var dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/project_4'
+var dbURI = process.env.MONGO_URI
 mongoose.connect(dbURI)
 // mongoose.connect('mongodb://localhost:27017/ms')
 
