@@ -1,0 +1,64 @@
+<% layout('layout') %>
+<h1>Home</h1>
+
+      <div class = "ui-widget">
+        <p>Search Here for product</p>
+        <label for = "searchProducts">Product: </label>
+        <input id = "searchProducts">
+        <div id='result'>
+        </div>
+     </div>
+<% var newDate = new Date().toDateString() %>
+<table class="table table-bordered">
+<thead>
+  <th>Date</th>
+  <th>Product</th>
+  <th>Quantity Sold</th>
+</thead>
+<% transaction.forEach(function(t) { %>
+
+  <tr>
+  <td><%= newDate %></td>
+  <td><%= t.products.productname %></td>
+  <td><%= t.tqty%></td>
+  </tr>
+
+<%})%>
+</table>
+
+<button type="button" a href="/logout" class="btn btn-primary btn-lg active">Logout</button>
+
+<% var products = JSON.stringify(product) %>
+    <script>
+      $(document).ready(function(){
+        var test = <%- products %>
+        var autocomplete = []
+        var productsku = {}
+        var productid = {}
+        test.forEach(function (data) {
+          // console.log('hi', data.outletname)
+          autocomplete.push(data.sku)
+          productsku[data.sku] = data.productname
+          productid[data.sku] = data._id
+        })
+
+        $(function() {
+            var availableProducts  =  autocomplete
+            $( "#searchProducts" ).autocomplete({
+               source: availableProducts
+            });
+
+            $('#searchProducts').keydown(function (event) {
+                if (event.which === 13) {
+                  $('#result').append(`<h1>${productsku[event.target.value]}</h1>`)
+                  $('#result').append(`<form action="/home/updateqty/${productid[event.target.value]}?_method=put" method="post" class='btnbox'><input name='qty'><select name="outletname">
+                    <% outlet.forEach(function(data) { %>
+                      <option value="<%=data.id%>"><%=data.outletname%></option>
+                    <%})%></select>
+                    </input><input type="submit" value="submit" class="btn btn-primary btn-sm active" role="button"></input></form>`)
+
+                }
+            })
+         });
+      })
+    </script>

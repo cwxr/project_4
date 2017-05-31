@@ -1,0 +1,22 @@
+.signup {
+  text-align: center;
+  width: 60%;
+  height: auto;
+  margin: auto;
+}
+.input_group input {
+  height: 40px;
+  font-size: 17px;
+}
+
+.bgimg {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+    background-image:url("../images/shopping bg.jpg");
+    background-size: cover;
+
+
+}

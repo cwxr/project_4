@@ -1,0 +1,17 @@
+<% layout('layout') %>
+<div class="container">
+  <h3>Show All Outlets</h3>
+  <div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+      <dl class="dl-horizontal">
+        <% outlets.forEach((outlet) => { %>
+            <dt><%- outlet.outletname %></dt>
+            <a href="/home/updateoutlet/<%- outlet.id %>"><button class="btn btn-primary btn-sm active">Edit Outlet</button></a>
+
+              <form action="/home/deleteoutlet/<%- outlet.id %>?_method=delete" method="post" class='btnbox'>
+                  <input type="submit" value="Delete Outlet" class="btn btn-primary btn-sm active" role="button"></input>
+              </form>
+       <% }) %>
+      </dl>
+    </div>

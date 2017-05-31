@@ -1,0 +1,54 @@
+<% layout('layout') %>
+
+
+<div class="container">
+    <br><br>
+    <div class="text-center reg_msg">
+        <h1><a href="/">EOS</a></h1>
+    </div>
+   <br><br>
+
+   <div class="text-center reg_msg">
+        <h2 class="fancy"><span>CREATE PRODUCT</span></h2>
+   </div><br>
+
+    <div class="row signup">
+
+        <form method="POST" action="/home/createproduct">
+
+            <div class="row">
+                <div class="form-group col-xs-12 input_group">
+                    <input id="productname" class="form-control" name="productname" type="text" autocomplete="on" placeholder="PRODUCT NAME" style="margin-top: 50px; margin-bottom:20px;" >
+                </div>
+            </div>
+
+
+            <div class="form-group input_group">
+                <input id="qty" class="form-control" name="qty" type="text" placeholder="QUANTITY" style="margin-bottom:20px;">
+            </div>
+
+            <div class="form-group input_group">
+                <input id="productdesc" class="form-control" name="productdesc" type="text" placeholder="PRODUCT DESCRIPTION" style="margin-bottom:20px;">
+            </div>
+
+            <div class="form-group input_group">
+                <input id="sku" class="form-control" name="sku" type="text" placeholder="SKU" style="margin-bottom:20px;">
+            </div>
+            <div class="form-group input_group">
+            <select name="outletname">
+              <% outlet.forEach(function(data) { %>
+                <option value="<%=data.id%>"><%=data.outletname%></option>
+              <%})%>
+              </div>
+
+            </select>
+
+
+            <div class="form-group">
+                <input type="submit" id="create" value="CREATE" class="form-control btn btn-primary" name="create" style="">
+            </div>
+
+          </form>
+
+    </div>
+</div>

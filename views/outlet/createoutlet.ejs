@@ -1,0 +1,42 @@
+<% layout('layout') %>
+
+
+<div class="container">
+    <br><br>
+    <div class="text-center reg_msg">
+        <h1><a href="/">EOS</a></h1>
+    </div>
+   <br><br>
+
+   <div class="text-center reg_msg">
+        <h2 class="fancy"><span>CREATE OUTLET</span></h2>
+   </div><br>
+
+    <div class="row signup">
+
+        <form method="POST" action="/home/createoutlet">
+
+            <div class="row">
+                <div class="form-group col-xs-12 input_group">
+                    <input id="outletname" class="form-control" name="outletname" type="text" autocomplete="on" placeholder="OUTLET NAME" style="margin-top: 50px; margin-bottom:20px;" >
+                </div>
+            </div>
+
+
+            <div class="form-group input_group">
+                <input id="outletaddress" class="form-control" name="outletaddress" type="text" placeholder="OUTLET ADDRESS" style="margin-bottom:20px;">
+            </div>
+
+            <div class="form-group input_group">
+                <input id="outletnumber" class="form-control" name="outletnumber" type="text" placeholder="OUTLET NUMBER" style="margin-bottom:20px;">
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" id="create" value="CREATE" class="form-control btn btn-primary" name="create" style="">
+            </div>
+
+          </form>
+
+    </div>
+</div>

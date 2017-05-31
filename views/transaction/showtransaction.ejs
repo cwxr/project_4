@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h3>Transactions</h3>
+  <div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+      <dl class="dl-horizontal">
+        <% transactions.forEach((transaction) => { %>
+            <div><dt><%- transaction.tdate %></dt>
+            <dt><%- transaction.tqty %></dt>
+            <dt><%- transaction.products.productname %></dt>
+            <dt><%- transaction.outlets.outletname %></dt>
+            </div><br />
+       <% }) %>
+      </dl>
+    </div>
