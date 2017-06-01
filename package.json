@@ -1,5 +1,5 @@
 {
-  "name": "project4",
+  "name": "project_4",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -18,7 +18,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^1.11.0",
     "async": "^2.4.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
