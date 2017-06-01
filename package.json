@@ -9,7 +9,7 @@
     "dev": "nodemon app.js"
   },
   "engines": {
- "node": "0.10.41",
+ "node": "5.0.0",
  "npm": "1.4.29"
 },
   "repository": {
