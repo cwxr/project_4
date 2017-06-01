@@ -12,6 +12,7 @@ var passport = require('passport')
 var flash = require('connect-flash')
 
 var app = express()
+console.log(app)
 
 console.log('Value: ' + process.env.PROD_MONGODB)
 
