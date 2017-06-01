@@ -19,7 +19,7 @@ console.log('Value: ' + process.env.PROD_MONGODB)
 // setup DB
 mongoose.Promise = global.Promise
 var dbURI = process.env.PROD_MONGODB || 'mongodb://localhost:27017/project_4'
-
+mongodb:// cwxr:cwxr841125@ds159371.mlab.com:59371/selltrue
 mongoose.connect(dbURI)
 
 require('./config/passport')

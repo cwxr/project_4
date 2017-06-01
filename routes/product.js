@@ -4,6 +4,7 @@ var Product = require('../models/product')
 var Outlet = require('../models/outlet')
 var passport = require('../config/passport')
 var Transaction = require('../models/transaction')
+var moment = require('moment')
 
 // SEARCH PRODUCTS
 
@@ -73,9 +74,9 @@ router.put('/updateproduct/:id', function (req, res, next) {
 // UPDATE QTY FUNCTION
 router.put('/updateqty/:id', function (req, res, next) {
   Product.findById(req.params.id, function (err, product) {
-    var date = new Date()
+    var date = moment().format('LL')
     var newTransaction = new Transaction({
-      tdate: date.setHours(0, 0, 0, 0),
+      tdate: date,
       tqty: req.body.qty,
       products: product._id,
       outlets: req.body.outletname

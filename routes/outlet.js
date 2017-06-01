@@ -4,14 +4,15 @@ var Outlet = require('../models/outlet')
 var Product = require('../models/product')
 var passport = require('../config/passport')
 var Transaction = require('../models/transaction')
+var moment = require('moment')
 
 // FIND ALL OUTLETS & PRODUCTS
 router.get('/', function (req, res) {
   Outlet.find({}, function (err, outlet) {
     Product.find({}, function (err, product) {
-      var date = new Date()
-      console.log(date.setHours(0, 0, 0, 0))
-      Transaction.find({tdate: date.setHours(0, 0, 0, 0)}).populate('products').exec(function (err, transaction) {
+      var date = moment().format('LL')
+
+      Transaction.find({tdate: date}).populate('products').exec(function (err, transaction) {
         if (err) {
           console.log(err)
         } else {
