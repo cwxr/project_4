@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
@@ -12,11 +13,13 @@ var flash = require('connect-flash')
 
 var app = express()
 
+console.log('Value: ' + process.env.PROD_MONGODB)
+
 // setup DB
 mongoose.Promise = global.Promise
-var dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/project_4'
+var dbURI = process.env.PROD_MONGODB || 'mongodb://localhost:27017/project_4'
+
 mongoose.connect(dbURI)
-// mongoose.connect('mongodb://localhost:27017/ms')
 
 require('./config/passport')
 require('./secret/secret')
@@ -65,4 +68,5 @@ require('./routes/user')(app)
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port 3000')
+  console.log('Value: ' + process.env.PROD_MONGODB)
 })
