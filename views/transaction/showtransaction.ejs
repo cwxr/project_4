@@ -1,16 +1,33 @@
-
+<% layout('layout') %>
 <div class="container">
-  <h3>Transactions</h3>
+  <a href="/home">
+      <img class="logo-small" src="../images/SellTrueLogo.png" alt="">
+  </a>
+  <h1 class="page-title">Transactions</h1>
   <div class="panel panel-primary">
     <div class="panel-heading"></div>
     <div class="panel-body">
-      <dl class="dl-horizontal">
+
+
+        <table class="table table-bordered">
+        <thead class="thead-default">
+
+          <th>Date</th>
+          <th>Quantity Sold</th>
+          <th>Products</th>
+          <th>Outlets</th>
+        </thead>
+
         <% transactions.forEach((transaction) => { %>
-            <div><dt><%- transaction.tdate %></dt>
-            <dt><%- transaction.tqty %></dt>
-            <dt><%- transaction.products.productname %></dt>
-            <dt><%- transaction.outlets.outletname %></dt>
-            </div><br />
+            <div
+              <tr>
+                <td><%- transaction.tdate %></td>
+                <td><%- transaction.tqty %></td>
+                <td><%- transaction.products.productname %></td>
+                <td><%- transaction.outlets.outletname %></td>
+              </tr>
+            </div>
+
        <% }) %>
-      </dl>
+
     </div>

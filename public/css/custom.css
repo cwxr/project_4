@@ -17,6 +17,42 @@
 body {
     background-image:url("../images/shopping bg.jpg");
     background-size: cover;
+}
+
+.logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-55%, -45%);
+}
+
+.pull-left {
+  color: white;
+}
+
+.logo-small {
+  width: 220px;
+  height: 220px;
+}
 
 
+
+.table {
+  background-color: #96C0B7;
+  width: 800px;
+}
+
+.page-title {
+  color: #1F2041;
+  font-weight: bold;
+}
+
+.deletebtn {
+  display: inline-block;
+}
+
+.stform {
+  margin: 10px;
+  padding: 10px;
 }

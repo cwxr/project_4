@@ -1,8 +1,27 @@
 <% layout('layout') %>
 <h1>Home</h1>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Sell True</a>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/home/createoutlet">ADD OUTLET</a></li>
+        <li><a href="/home/showoutlet">OUTLETS</a></li>
+        <li><a href="/home/createproduct">ADD PRODUCT</a></li>
+        <li><a href="/home/showproduct">PRODUCTS</a></li>
+        <li><a href="/home/showtransaction">TRANSACTIONS</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
       <div class = "ui-widget">
-        <p>Search Here for product</p>
+        <h3>Search Here for product</h3>
         <label for = "searchProducts">Product: </label>
         <input id = "searchProducts">
         <div id='result'>
@@ -26,7 +45,9 @@
 <%})%>
 </table>
 
-<button type="button" a href="/logout" class="btn btn-primary btn-lg active">Logout</button>
+<a href="/logout">
+  <button type="button" class="btn btn-primary btn-lg active">Logout</button>
+</a>
 
 <% var products = JSON.stringify(product) %>
     <script>
