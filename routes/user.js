@@ -72,7 +72,7 @@ module.exports = (app) => {
       },
       function (rand, user, callback) {
         var smtpTransport = nodemailer.createTransport({
-          service: 'Gmail',
+          service: 'gmail',
           auth: {
             user: process.env.user,
             pass: process.env.pass
@@ -80,7 +80,7 @@ module.exports = (app) => {
         })
         var mailOptions = {
           to: user.email,
-          from: 'EOS ' + '<' + secret.auth.user + '>',
+          from: 'EOS ' + '<' + process.env.user + '>',
           subject: 'EOS Application Reset Token',
           text: 'You have requested for a password reset token. \n\n' +
                     'Please click on the link to complete the process: \n\n' +
