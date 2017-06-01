@@ -84,7 +84,7 @@ module.exports = (app) => {
           subject: 'EOS Application Reset Token',
           text: 'You have requested for a password reset token. \n\n' +
                     'Please click on the link to complete the process: \n\n' +
-                    'http://localhost:3000/reset/' + rand + '\n\n'
+                    'https://selltrue2.herokuapp.com/reset/' + rand + '\n\n'
         }
         smtpTransport.sendMail(mailOptions, (err, response) => {
           req.flash('info', 'A password reset token has been sent to' + user.email)
