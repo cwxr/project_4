@@ -8,13 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js"
   },
+  "engines": {
+ "node": "0.10.41",
+ "npm": "1.4.29"
+},
   "repository": {
     "type": "git",
     "url": "https://github.com/cwxr/project_4.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/cwxr/project_4#readme",
   "dependencies": {
     "async": "^2.4.1",
     "bcrypt-nodejs": "0.0.3",
