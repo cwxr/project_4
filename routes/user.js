@@ -71,30 +71,51 @@ module.exports = (app) => {
         })
       },
       function (rand, user, callback) {
-        var smtpTransport = nodemailer.createTransport({
-          service: 'gmail',
+        console.log('hi', user)
+        console.log('rand', rand)
+        const DEFAULT_USER = 'test@pixelarrow.com.sg'
+        const DEFAULT_PASS = 'Temppw123'
+
+        const SERVER_OPTS = {
+          port: 465,
+          host: 'mail.pixelarrow.com.sg',
+          secure: true,
           auth: {
-            user: process.env.user,
-            pass: process.env.pass
+            user: DEFAULT_USER,
+            pass: DEFAULT_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
           }
-        })
+        }
+
+        const transporter = nodemailer.createTransport(SERVER_OPTS)
+
         var mailOptions = {
           to: user.email,
-          from: 'EOS ' + '<' + process.env.user + '>',
+          from: 'EOS ' + '<' + DEFAULT_USER + '>',
           subject: 'EOS Application Reset Token',
           text: 'You have requested for a password reset token. \n\n' +
-                    'Please click on the link to complete the process: \n\n' +
-                    'https://selltrue2.herokuapp.com/reset/' + rand + '\n\n'
+            'Please click on the link to complete the process: \n\n' +
+            'https://selltrue2.herokuapp.com/reset/' + rand + '\n\n'
         }
-        smtpTransport.sendMail(mailOptions, (err, response) => {
+
+        transporter.sendMail(mailOptions, (error, info) => {
+          // if (error) {
+          //   return console.log(error)
+          // }
+          console.log('Message %s sent: %s', info.messageId, info.response)
           req.flash('info', 'A password reset token has been sent to' + user.email)
-          return callback(err, user)
+          callback(null, 'done')
         })
       }
+
     ], (err) => {
+      console.log('I am here')
       if (err) {
         return next(err)
       }
+
       res.redirect('/forgot')
     })
   })
@@ -109,7 +130,7 @@ module.exports = (app) => {
       res.render('user/reset', {title: 'Reset Your Password', messages: errors, hasErrors: errors.length > 0, success: success, noErrors: success.length > 0})
     })
   })
-  app.post('./reset/:token', (req, res) => {
+  app.post('/reset/:token', (req, res) => {
     async.waterfall([
       function (callback) {
         User.findOne({passwordResetToken: req.params.token, passwordResetExpires: {$gt: Date.now()}}, (err, user) => {
@@ -148,20 +169,31 @@ module.exports = (app) => {
         })
       },
       function (user, callback) {
-        var smtpTransport = nodemailer.createTransport({
-          service: 'Gmail',
+        const DEFAULT_USER = 'test@pixelarrow.com.sg'
+        const DEFAULT_PASS = 'Temppw123'
+
+        const SERVER_OPTS = {
+          port: 465,
+          host: 'mail.pixelarrow.com.sg',
+          secure: true,
           auth: {
-            user: secret.auth.user,
-            pass: secret.auth.pass
+            user: DEFAULT_USER,
+            pass: DEFAULT_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
           }
-        })
+        }
+
+        const transporter = nodemailer.createTransport(SERVER_OPTS)
+
         var mailOptions = {
           to: user.email,
-          from: 'EOS ' + '<' + secret.auth.user + '>',
+          from: 'EOS ' + '<' + DEFAULT_USER + '>',
           subject: 'Your password has been updated',
           text: 'This is a confirmation email that you have updated your password for' + user.email
         }
-        smtpTransport.sendMail(mailOptions, (err, response) => {
+        transporter.sendMail(mailOptions, (err, response) => {
           callback(err, user)
 
           var error = req.flash('error')
