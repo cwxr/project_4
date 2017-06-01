@@ -9,8 +9,7 @@
     "dev": "nodemon app.js"
   },
   "engines": {
- "node": "5.0.0",
- "npm": "1.4.29"
+ "node": "5.0.0"
 },
   "repository": {
     "type": "git",
