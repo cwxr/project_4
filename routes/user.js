@@ -5,7 +5,6 @@ var smtpTransport = require('nodemailer-smtp-transport')
 var async = require('async')
 var crypto = require('crypto')
 var User = require('../models/user')
-var secret = require('../secret/secret')
 
 module.exports = (app) => {
   app.get('/', (req, res, next) => {

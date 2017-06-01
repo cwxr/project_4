@@ -23,7 +23,6 @@ mongodb:// cwxr:cwxr841125@ds159371.mlab.com:59371/selltrue
 mongoose.connect(dbURI)
 
 require('./config/passport')
-require('./secret/secret')
 
 // setup the method override
 var methodOverride = require('method-override')
