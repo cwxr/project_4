@@ -9,8 +9,8 @@
     "dev": "nodemon app.js"
   },
   "engines": {
- "node": "7.10.0"
-},
+    "node": "7.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cwxr/project_4.git"
@@ -34,7 +34,8 @@
     "nodemailer": "^4.0.1",
     "nodemailer-smtp-transport": "^2.7.4",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "dotenv": "^4.0.0",
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
