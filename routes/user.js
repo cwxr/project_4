@@ -9,12 +9,12 @@ var User = require('../models/user')
 module.exports = (app) => {
   app.get('/', (req, res, next) => {
     console.log('hi')
-    res.render('index', {title: 'Index || EOS'})
+    res.render('index', {title: 'Index || SeLL TruE'})
   })
 
   app.get('/signup', (req, res) => {
     var errors = req.flash('error')
-    res.render('user/signup', {title: 'Sign Up || EOS', messages: errors, hasErrors: errors.length > 0})
+    res.render('user/signup', {title: 'Register || SeLL TruE', messages: errors, hasErrors: errors.length > 0})
   })
 
   app.post('/signup', validate, passport.authenticate('local.signup', {
@@ -26,7 +26,7 @@ module.exports = (app) => {
   app.get('/login', (req, res) => {
     console.log('hello')
     var errors = req.flash('error')
-    res.render('user/login', {title: 'Login || EOS', messages: errors, hasErrors: errors.length > 0})
+    res.render('user/login', {title: 'Login || SeLL TruE', messages: errors, hasErrors: errors.length > 0})
   })
 
   app.post('/login', loginValidation, passport.authenticate('local.login', {
@@ -92,8 +92,8 @@ module.exports = (app) => {
 
         var mailOptions = {
           to: user.email,
-          from: 'EOS ' + '<' + DEFAULT_USER + '>',
-          subject: 'EOS Application Reset Token',
+          from: 'SeLL TruE ' + '<' + DEFAULT_USER + '>',
+          subject: 'SeLL TruE Application Reset Token',
           text: 'You have requested for a password reset token. \n\n' +
             'Please click on the link to complete the process: \n\n' +
             'https://selltrue2.herokuapp.com/reset/' + rand + '\n\n'
@@ -104,7 +104,7 @@ module.exports = (app) => {
           //   return console.log(error)
           // }
           console.log('Message %s sent: %s', info.messageId, info.response)
-          req.flash('info', 'A password reset token has been sent to' + user.email)
+          req.flash('info', 'A password reset token has been sent to ' + user.email)
           callback(null, 'done')
         })
       }
@@ -188,9 +188,9 @@ module.exports = (app) => {
 
         var mailOptions = {
           to: user.email,
-          from: 'EOS ' + '<' + DEFAULT_USER + '>',
-          subject: 'Your password has been updated',
-          text: 'This is a confirmation email that you have updated your password for' + user.email
+          from: 'SeLL TruE ' + '<' + DEFAULT_USER + '>',
+          subject: 'Password has been updated',
+          text: 'This is a confirmation email that you have updated your password for ' + user.email
         }
         transporter.sendMail(mailOptions, (err, response) => {
           callback(err, user)
