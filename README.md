@@ -5,7 +5,8 @@
 *"the ratio of the quantity of goods sold by a retailer to the quantity originally delivered to it wholesale"*
 
 ### User Stories
-SeLL TruE is created with the basis to help a group of retailers to have better visibility and control over their products that they consign with anchor merchants which they do not have access to real-time sales information.
+SeLL TruE is created with the basis to help a group of retailers to have better visibility and control over their products that they consign with anchor merchants. Unfortnately most of the time they do not have access to real-time sales information.
+With SeLL TruE we are able to assist them with real time information and analytics for the retailers to have better product planning and go-to-market strategies!
 
 ### ERD
 ![erd image](http://i.imgur.com/8ntOSaQ.jpg)
