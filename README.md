@@ -36,6 +36,7 @@ npm install
 ### Language & Application
  - HTML & CSS
  - Node.js
+ - JQuery
  - mLab
  - mongoDB
  - Heroku
